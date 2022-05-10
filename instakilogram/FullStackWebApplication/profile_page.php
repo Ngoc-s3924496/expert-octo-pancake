@@ -89,7 +89,7 @@ exit;
 
 			<div class="profile-bio">
 
-				<p><span class="profile-real-name"><?php echo $_SESSION['unique_fname_id']." ".$_SESSION['unique_lname_id']; ?></span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
+				<p><span class="profile-real-name"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
 
 			</div>
 

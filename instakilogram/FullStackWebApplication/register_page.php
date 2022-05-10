@@ -48,8 +48,7 @@
 
                         <input class="input-box" id="l_name" type="text" name="l_name" placeholder="Last Name"
                             required minlength="2" maxlength="20" oninput="continuousValidateLastName()" />
-                        <input class="form-control file_btn" id="profile-upload" type="file" name="profile_picture"
-                            accept=".jpg,.jpeg,.png,.gif" required />
+                        <input class="form-control file_btn" id="profile-upload" type="file" name="profile_picture"/>
                         <p class="error-message"><?php echo $_SESSION['error_register']; $_SESSION['error_register'] = "";?></p>
                         <button class="input-box" type="reset" id="reset" onclick="resetValidate()">
                             Clear
