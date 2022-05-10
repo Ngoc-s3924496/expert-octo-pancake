@@ -1,0 +1,16 @@
+[
+    {
+        "f_name": "asd",
+        "l_name": "asd",
+        "email": "a@gmail.com",
+        "password": "$2y$10$VZebEeWaP3v1aYKX943UV.P7qaO1TYkm0AAeFSBoNB78.lr9Ok4Ym",
+        "registered_time": "09\/05\/2022 07:10:58 UTC"
+    },
+    {
+        "f_name": "abb",
+        "l_name": "abbc",
+        "email": "b@gmail.com",
+        "password": "$2y$10$eCV3S.FRRipZPvN3TWI8q.BFCOWPiGrUruT9DlqiSzCptlazau4re",
+        "registered_time": "09\/05\/2022 15:35:20 UTC"
+    }
+]
