@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
             $data_to_save = $old_records;
         }
         if (file_put_contents('../../UserData/UserAccounts/accounts.db', json_encode($data_to_save, JSON_PRETTY_PRINT), LOCK_EX)) {
-            header("../login_page.php");
+            header("Location: ../login_page.php");
         } else {
             $_SESSION['error_register'] = 'Register failed, please try again!';
             header("Location: ../register_page.php");
