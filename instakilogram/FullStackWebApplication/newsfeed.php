@@ -52,7 +52,7 @@ header("Location: login_page.php");
                         </i>
                     </a>
                     <a href="profile_page.php" class="navigation-link user-icon">
-                        <img src="<?php echo get_profile_img($_SESSION['username']); ?>" height="30" width="30" alt="avatar" class="rounded-circle">
+                        <img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height="30" width="30" alt="avatar" class="rounded-circle">
                     </a>
                 </div>
             </div>

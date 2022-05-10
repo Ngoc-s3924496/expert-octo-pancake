@@ -33,5 +33,12 @@
         "email": "tuantran@yahoo.com",
         "password": "$2y$10$Otv.80grO.s1NenXpGYtJesaVi5KulFO7rcUETd\/fyI2zG\/Z7l7Ze",
         "registered_time": "10\/05\/2022 07:20:55 UTC"
+    },
+    {
+        "f_name": "Bao",
+        "l_name": "Nguyen",
+        "email": "baonguyen@gmail.com",
+        "password": "$2y$10$aDVlKY430.lUV.dur\/867uCnaJxjZ753ICE7LFuL7u1ICPbhBMe1u",
+        "registered_time": "10\/05\/2022 09:41:26 UTC"
     }
 ]

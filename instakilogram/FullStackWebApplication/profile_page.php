@@ -52,7 +52,7 @@ exit;
                     </i>
                 </a>
                 <a href="profile_page.php" class="navigation-link user-icon">
-                    <img src="<?php echo get_profile_img($_SESSION['username']); ?>" height="30" width="30" alt="avatar" class="rounded-circle">
+					<img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='30' width='30' alt='avatar' class='rounded-circle'>
                 </a>
             </div>
         </div>
@@ -64,7 +64,7 @@ exit;
 		<div class="profile">
 
 			<div class="profile-image">
-				<img src="<?php echo get_profile_img($_SESSION['username']); ?>" height="150" width="150" alt="">
+				<img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='150' width='150' alt=''>
 			</div>
 
 			<div class="profile-user-settings">

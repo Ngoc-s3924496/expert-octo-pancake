@@ -41,8 +41,10 @@ if (isset($_POST['submit'])) {
         $registerOK = 0;
     }
     //  Verify image
-    if (!verify_img($profile_img, "../../UserData/ProfileImages/")) {
-        $registerOK = 0;
+    if ($profile_img['size'] > 0 && $profile_img['error'] == 0) {
+        if (!verify_img($profile_img, "../../UserData/ProfileImages/")) {
+            $registerOK = 0;
+        }
     }
     // Bring the data all together inside an array
     $form_data = [

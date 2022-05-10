@@ -1,6 +1,4 @@
 <?php
-$ipaddress = $_SERVER['REMOTE_ADDR'];
-
 function clean_text($data_string) {
     $data_string = trim($data_string);
     $data_string = stripslashes($data_string);
@@ -166,20 +164,18 @@ function update_img_profile($img_file, $email_string, $fname, $lname, $dir) {
 }
 
 function delete_img($img_file, $email_string, $dir) {
-    global $error_no_img;
     $email_string = substr($email_string, 0, strpos($email_string, '@'));
     $target_dir = $dir . $email_string;
-    $error_delete_img = $ipaddress . '_error_delete_img';
     if (file_exists($target_dir)) {
         $target_file = $target_dir . "/" . basename($img_file["name"]);
         if (unlink($target_file)) {
             return true;
         } else {
-            $_SESSION[$error_delete_img] = 'Cannot delete image!';
+            $_SESSION['error_delete'] = 'Cannot delete image!';
             return false;
         }
     } else {
-        $_SESSION[$error_delete_img] = 'There are no images!';
+        $_SESSION['error_delete'] = 'There are no images!';
         return false;
     }
 }
@@ -213,23 +209,21 @@ function verify_img($img_file, $target_dir) {
 }
 
 function verify_update_img($img_file, $target_dir) {
-    global $error_update_img;
     $target_file = $target_dir . basename($img_file["name"]);
-    $error_update_img = $ipaddress . '_error_update_img';
     if (check_img_real($img_file)) {
         if (check_file_size($img_file)) {
             if (check_img_type($target_file)) {
                 return true;
             } else {
-                $_SESSION[$error_update_img] = 'Only JPG, JPEG, PNG and GIF files are allowed!';
+                $_SESSION['error_update'] = 'Only JPG, JPEG, PNG and GIF files are allowed!';
                 return false;
             }
         } else {
-            $_SESSION[$error_update_img] = 'Your file is too large!';
+            $_SESSION['error_update'] = 'Your file is too large!';
             return false;
         }   
     } else {
-        $_SESSION[$error_update_img] = 'File is not an image!';
+        $_SESSION['error_update'] = 'File is not an image!';
         return false;
     }
 }
@@ -245,3 +239,5 @@ function get_profile_img($user){
     $image = $file_location . $files[2];
     return $image;
 }
+
+
