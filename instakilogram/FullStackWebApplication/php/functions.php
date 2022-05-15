@@ -112,6 +112,12 @@ function rename_img($img, $new_name, $database_path) {
     return rename($old_path, $new_path);
 }
 
+function upload_img_name($username) {
+    $name_frame = 'Upload_Img_';
+    $name = $name_frame . $username;
+    return $name;
+}
+
 function get_name_via_email($email_string) {
     $email_string = substr($email_string, 0, strpos($email_string, '@'));
     return $email_string;

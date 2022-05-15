@@ -15,8 +15,8 @@
         $_SESSION['email_user_detail'] = '';
         $_SESSION['fname_user_detail'] = '';
         $_SESSION['lname_user_detail'] = '';
-        echo "<form action='php/set_detailed_page.php' method='Post' enctype='multipart/form-data'>";
-        for ($i = 0; $i < count($_SESSION['search-result']); $i++) {
+        echo "<form action='php/set_detailed_page.php' method='post' enctype='multipart/form-data'>";
+        for ($i = 0; $i < (count($_SESSION['search-result'])); $i++) {
             foreach ($_SESSION['search-result'] as $key => $value) {
                 $fname = $_SESSION['search-result'][$i]['fname'];
                 $lname = $_SESSION['search-result'][$i]['lname'];

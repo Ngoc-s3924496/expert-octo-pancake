@@ -1,5 +1,6 @@
 <?php
 include_once('functions.php');
+session_start();
 if (isset($_GET['search'])) {
     $userAccountFolder = '../../UserData/UserAccounts/accounts.db';
     $data = retrieve_data($userAccountFolder);
