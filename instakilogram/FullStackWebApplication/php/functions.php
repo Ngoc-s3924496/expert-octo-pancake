@@ -240,4 +240,27 @@ function get_profile_img($user){
     return $image;
 }
 
+function upload_img($img_file, $email_string, $fname, $lname, $unix_time, $dir) {
+    $email_string = substr($email_string, 0, strpos($email_string, '@'));
+    $target_dir = $dir . '/' .'Images';
+    $new_file_name = upload_img_name((explode('.',$img_file['name'])[0]) . '@' . $email_string . '@@' . $unix_time);
+    $new_target_file_name = $target_dir . "/" . $new_file_name;
+    $target_file = $target_dir . "/" . basename($img_file["name"]);
+    $file_extension = get_file_extension($target_file);
+    $new_target_file_name .= $file_extension;
+    if (move_uploaded_file($img_file['tmp_name'], $target_file)) {
+        rename($target_file, $new_target_file_name);
+        return true;
+    } else {
+        return false;
+    }
+}
 
+function get_profile_img_path($email_string, $fname, $lname, $dir) {
+    $email_string = substr($email_string, 0, strpos($email_string, '@'));
+    $target_dir = $dir . $email_string;
+    $profile_img_dtb_path = glob($target_dir . '/*');
+    foreach ($profile_img_dtb_path as $profile_img) {
+        return $profile_img;
+    }
+}
