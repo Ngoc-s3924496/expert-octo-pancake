@@ -18,5 +18,5 @@ if (isset($_POST['submit'])) {
     $_SESSION['email_user_detail'] = $email;
     $_SESSION['fname_user_detail'] = $fname;
     $_SESSION['lname_user_detail'] = $lname;
-    header('Location: ../design/user_detailed_page.php');
+    header('Location: ../user_detailed_page.php');
 }

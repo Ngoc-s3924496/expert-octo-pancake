@@ -17,7 +17,7 @@ if (isset($_POST['manage_image'])) {
         }
     }
     if (file_exists($folder_location . '/')) {
-        for ($j=0;$j<count($post_data);$j++) {
+        for ($j = (count($post_data) - 1); $j >= 0; $j--) {
             foreach (scandir($folder_location) as $img) {
                 $image_location = $folder_location . '/' . $img;
                 $username = explode('@', explode('@@', $img)[0])[1];

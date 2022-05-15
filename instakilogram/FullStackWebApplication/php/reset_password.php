@@ -31,14 +31,14 @@ if (isset($_POST['change'])) {
             }
         }
         if (file_put_contents($user_account, json_encode($data, JSON_PRETTY_PRINT), LOCK_EX)) {
-            header('Location: ../design/user_detailed_page.php');
+            header('Location: ../user_detailed_page.php');
         } else {
             $_SESSION['change_password'] = 'Failed to change password!';
-            header('Location: ../design/user_detailed_page.php');
+            header('Location: ../user_detailed_page.php');
         }
     } else {
         $_SESSION['change_password'] = 'Password is not correctly in format!';
-        header('Location: ../design/user_detailed_page.php');
+        header('Location: ../user_detailed_page.php');
     }
 }
 

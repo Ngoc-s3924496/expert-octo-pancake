@@ -18,7 +18,7 @@
         $user_accounts = '../../UserData/UserAccounts/accounts.db';
         $data = retrieve_data($user_accounts);
         echo "<form action='set_detailed_page.php' method='Post' enctype='multipart/form-data'>";
-        for ($i=0; $i < count($data); $i++) {
+        for ($i = (count($data) - 1); $i >= 0; $i--) {
             $fname = $data[$i]['f_name'];
             $lname = $data[$i]['l_name'];
             $email = $data[$i]['email'];

@@ -22,7 +22,7 @@ if (isset($_POST['upload'])) {
         'created_seconds' => time(),
         'image' => $upload_image
     ];
-    if (!verify_update_img($upload_image, $img_database_location . '/')) {
+    if (!verify_update_img($upload_image, $img_database_location)) {
         $uploadOK = 0;
     }
     if ($uploadOK == 1) {

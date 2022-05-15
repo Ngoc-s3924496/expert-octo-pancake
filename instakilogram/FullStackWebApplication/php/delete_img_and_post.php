@@ -32,7 +32,7 @@ if (isset($_POST['delete'])) {
         foreach (scandir($image_folder) as $post_img) {
             if (str_contains($post_img, $img_verify_1) && str_contains($img_verify_2, substr(explode('@', $post_img)[0], 11))) {
                 if (unlink($image_folder . '/' . $post_img)) {
-                    echo 'deleted in folder' . '<br>';
+                    header('Location: ../list_info.php');
                 } else {
                     echo 'fail to delete in folder' . '<br>';
                 }
