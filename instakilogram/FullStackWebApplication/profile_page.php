@@ -20,7 +20,7 @@ exit;
     <script src="assets/main.js" defer></script>
     <script src="https://kit.fontawesome.com/78d03b3312.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Jane Doe</title>
+    <title>Profile page</title>
 </head>
 <body>
     <nav>
@@ -52,7 +52,7 @@ exit;
                     </i>
                 </a>
                 <a href="profile_page.php" class="navigation-link user-icon">
-                    <img src="<?php echo get_profile_img($_SESSION['username']); ?>" height="30" width="30" alt="avatar" class="rounded-circle">
+					<img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='30' width='30' alt='avatar' class='rounded-circle'>
                 </a>
             </div>
         </div>
@@ -64,7 +64,7 @@ exit;
 		<div class="profile">
 
 			<div class="profile-image">
-				<img src="<?php echo get_profile_img($_SESSION['username']); ?>" height="150" width="150" alt="">
+				<img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='150' width='150' alt=''>
 			</div>
 
 			<div class="profile-user-settings">

@@ -17,7 +17,7 @@
         "f_name": "Thach",
         "l_name": "Ngo",
         "email": "baothach10@gmail.com",
-        "password": "$2y$10$lVDbWgfBwJYWTHiylHAWNO3vtR1hW4SovP0vDbCItYkPiscpWtEZy",
+        "password": "$2y$10$x.iRRdxtuEYbkl3Gk\/LpauqknwHDFrhRGNcsH8IikIZBqJSfGRHDa",
         "registered_time": "10\/05\/2022 07:15:14 UTC"
     },
     {
@@ -33,5 +33,19 @@
         "email": "tuantran@yahoo.com",
         "password": "$2y$10$Otv.80grO.s1NenXpGYtJesaVi5KulFO7rcUETd\/fyI2zG\/Z7l7Ze",
         "registered_time": "10\/05\/2022 07:20:55 UTC"
+    },
+    {
+        "f_name": "Bao",
+        "l_name": "Nguyen",
+        "email": "baonguyen@gmail.com",
+        "password": "$2y$10$aDVlKY430.lUV.dur\/867uCnaJxjZ753ICE7LFuL7u1ICPbhBMe1u",
+        "registered_time": "10\/05\/2022 09:41:26 UTC"
+    },
+    {
+        "f_name": "Quang",
+        "l_name": "Pham",
+        "email": "quangpham@gmail.com",
+        "password": "$2y$10$OKi\/QvJqyaxQ0zdfsNDUeu5v05y\/xuhwhEW5OztKH1m8caxi2DIhK",
+        "registered_time": "15\/05\/2022 17:50:38 UTC"
     }
 ]
