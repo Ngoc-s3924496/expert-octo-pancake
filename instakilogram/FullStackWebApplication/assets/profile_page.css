@@ -33,9 +33,29 @@ body {
     min-height: 100vh;
     background-color: #fafafa;
     color: #262626;
-    padding-bottom: 3rem;
 }
 
+main{
+  min-height: calc(100vh - 260px);
+}
+
+/* Footer */
+footer {
+ height: 130px;
+ background-color: #FFFEFE;
+ border-top: 1px solid rgb(222,226,230);
+ font-size: 16px;
+}
+
+.footer-container{
+  text-align:center; margin-top:25px;
+}
+
+.footer-space{
+  margin-left: 1.5rem;
+}
+/* Footer */
+    
  a, a:hover, a:focus, a:active {
       text-decoration: none;
       color: inherit;
@@ -152,7 +172,7 @@ body {
 /* Profile Section */
 
 .profile {
-    padding: 5rem 0;
+    padding: 6rem 0;
 }
 
 .profile::after {
@@ -200,7 +220,7 @@ body {
     border: 0.1rem solid #dbdbdb;
     border-radius: 0.3rem;
     padding: 0 2.4rem;
-    margin-left: 2rem;
+    margin-left: 1.2rem;
     transition: all 0.1s linear 0s;
 }
 .profile-edit-btn:hover {
@@ -221,9 +241,13 @@ body {
 }
 
 .profile-stats {
-    margin-top: 2.3rem;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
 }
 
+.profile-stats ul {
+    padding-left: 0 !important;
+}
 .profile-stats li {
     display: inline-block;
     font-size: 1.6rem;
@@ -254,14 +278,13 @@ body {
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    margin: -1rem -1rem;
+    margin: -1rem -2rem !important;
     padding-bottom: 3rem;
 }
 
 .gallery-item {
     position: relative;
     flex: 1 0 22rem;
-    margin: 1rem;
     color: #fff;
     cursor: pointer;
 }
@@ -315,16 +338,63 @@ body {
     height: 180px;
 }
 
+.model-height2{
+    height: 340px;
+}
 .comfirmation-text{
     font-size:23px;
     margin-top:30px;
     font-weight:bold;
 }
 
+.comfirmation-text2{
+    font-size:23px;
+    margin-top:20px;
+    font-weight:bold;
+}
+
+.comfirmation-text3{
+    font-size:18px;
+    margin-top:10px;
+    font-weight:bold;
+}
 .btn-text{
     font-size:13px;
     margin:10px;
     margin-top:20px;
+}
+
+.file_btn{
+    font-size: 12px !important;
+    height: 32px;
+    margin-left: 7.5%;
+    width: 85%;
+    margin-top: 5px;
+    background-color: #FAFBFA !important;
+    border: 2px solid #EBECEC !important;    
+}
+
+.margin-top{
+    margin-top: 25px !important;
+}
+
+.submit_btn{
+    font-size: 12px !important;
+    height: 32px;
+    margin-left: 7.5%;
+    width: 85%;
+    margin-top: 10px;
+    color: white;
+    background: #FF2D55 !important; 
+}
+.file_btn2{
+    font-size: 12px !important;
+    height: 32px;
+    margin-left: 7.5%;
+    width: 85%;
+    margin-top: 10px;
+    background-color: #FAFBFA !important;
+    border: 2px solid #EBECEC !important;   
 }
 /* Loader */
 
@@ -344,7 +414,7 @@ body {
     .profile {
         display: flex;
         flex-wrap: wrap;
-        padding: 4rem 0;
+        padding: 6rem 0;
     }
 
     .profile::after {
@@ -357,10 +427,6 @@ body {
     .profile-stats {
         float: none;
         width: auto;
-    }
-
-    .profile-image img {
-        width: 7.7rem;
     }
 
     .profile-user-settings {
@@ -446,7 +512,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
     .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         grid-gap: 2.5rem;
     }
 

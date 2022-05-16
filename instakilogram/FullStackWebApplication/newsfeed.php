@@ -18,6 +18,7 @@ header("Location: login_page.php");
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="assets/main.js" defer></script>
     <script src="https://kit.fontawesome.com/78d03b3312.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Instakilogram</title>
 </head>
 <body>
@@ -65,126 +66,118 @@ header("Location: login_page.php");
             <div class="col-md-8">
                 <!--Add button-->
                 <section class="d-flex justify-content-center w-100" id="post">
-                    <button class="post-btn">Add post</button>
+                    <button class="post-btn" data-bs-toggle="modal" data-bs-target="#postModal">Add post</button>
                 </section>
-                <!--Post 1-->
-                <section class="newfeed my-5">
-                    <div class="feed">
-                        <div class="card border">
-                            <div class="card-header">
-                                <!-------------Author-------------->
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="d-flex">
-                                            <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" class="rounded-circle" height="40" width="40" alt="Avatar">
-                                            <div class="mt-2">
-                                                <a href="" class="text-dark">
-                                                    <strong class="mt-5 username">janedoe_</strong>
-                                                </a>
+                <!--Post-->
+                <?php 
+                $data = retrieve_data("../UserData/UserUpload/posts.db");
+                for ($i = (count($data) - 1); $i >= 0; $i--){
+                    $username = '';
+                    $caption = '';
+                    $sharing_level = '';
+                    $image = '';
+                    foreach ($data[$i] as $key => $value) {
+                        $username = get_name_via_email($data[$i]['email']);
+                        $caption = $data[$i]['caption'];
+                        $sharing_level = $data[$i]['sharing_level'];
+                        $image = $data[$i]['image_location'];
+                    }
+                    if ($sharing_level == "private" and $username != $_SESSION['username']){
+                        continue;
+                    }
+                    else{
+                        echo 
+                        '<section class="newfeed my-5">
+                            <div class="feed">
+                                <div class="card border">
+                                    <div class="card-header">
+                                        <!-------------Author-------------->
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="d-flex">
+                                                    <img src="'.get_profile_img($username).'" onerror="this.src=\'assets/default_image/default_image.jpeg\';'.'" class="rounded-circle" height="40" width="40" alt="Avatar">
+                                                    <div class="mt-2">
+                                                        <a href="" class="text-dark">
+                                                            <strong class="mt-5 username">'.$username.'</strong>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                            <div class="col-4">
+                                                <i class="fas fa-ellipsis-h icon-size mt-2 float-right"></i>
+                                            </div>
+                                        </div>      
                                     </div>
-                                    <div class="col-4">
-                                        <i class="fas fa-ellipsis-h icon-size mt-2 float-right"></i>
+                                    <!--------Photo---------->
+                                    <div>
+                                        <img src="../UserData/UserUpload/Images/'.$image.'" class="w-100" alt="newpicture"/>
                                     </div>
-                                </div>      
-                            </div>
-                            <!---0----Photo---------->
-                            <div>
-                                <img src="https://images.unsplash.com/photo-1651936948193-229f1076037d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80" class="w-100" alt="newpicture"/>
-                            </div>
-                            <!------Interaction------>
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <i class="far fa-heart heart icon-size ml-0"></i>
-                                            <i class="far fa-comment icon-size mx-3"></i>
-                                            <i class="far fa-paper-plane icon-size"></i>
-                                            <i class="far fa-bookmark bookmark icon-size float-right"></i>
-                                        </div>
-                                    </div>
-                                    <!----Like by---->
-                                    <div class="row mt-2">
-                                        <div class="col-md-8 mt-1">
-                                            <small><strong class="">27,949 likes</strong></small>
-                                        </div>
-                                    </div>
-                                    <!--Description-->
-                                    <div class="row">
-                                        <div class="col-md-12 mt-2">
-                                            <p class="description-p">
-                                                <strong class="text-dark">janedoe_</strong> lorem ipsum dolor sit amet, consectetur 
-                                                lorem ipsum dolor sit
-                                            </p>
+                                    <!------Interaction------>
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <i class="far fa-heart heart icon-size ml-0"></i>
+                                                    <i class="far fa-comment icon-size mx-3"></i>
+                                                    <i class="far fa-paper-plane icon-size"></i>
+                                                    <i class="far fa-bookmark bookmark icon-size float-right"></i>
+                                                </div>
+                                            </div>
+                                            <!----Like by---->
+                                            <div class="row mt-2">
+                                                <div class="col-md-8 mt-1">
+                                                    <small><strong class="">925,529 likes</strong></small>
+                                                </div>
+                                            </div>
+                                            <!--Description-->
+                                            <div class="row">
+                                                <div class="col-md-12 mt-2">
+                                                    <p class="description-p">
+                                                        <strong class="text-dark">'.$username.'</strong>'.' '.$caption.
+                                                    '</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <!--Post 2-->
-                <section class="newfeed my-5">
-                    <div class="feed">
-                        <div class="card border">
-                            <div class="card-header">
-                                <!-------------Author-------------->
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="d-flex">
-                                            <img src="https://images.unsplash.com/photo-1652060582510-c9e4c48dad54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" style="border-radius:50%" height="40" width="40" alt="Avatar">
-                                            <div class="mt-2">
-                                                <a href="" class="text-dark">
-                                                    <strong class="mt-5 username">janedoe_</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <i class="fas fa-ellipsis-h icon-size mt-2 float-right"></i>
-                                    </div>
-                                </div>      
-                            </div>
-                            <!--------Photo---------->
-                            <div>
-                                <img src="https://images.unsplash.com/photo-1638913665258-ddd2bceafb30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="w-100" alt="newpicture"/>
-                            </div>
-                            <!------Interaction------>
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <i class="far fa-heart heart icon-size ml-0"></i>
-                                            <i class="far fa-comment icon-size mx-3"></i>
-                                            <i class="far fa-paper-plane icon-size"></i>
-                                            <i class="far fa-bookmark bookmark icon-size float-right"></i>
-                                        </div>
-                                    </div>
-                                    <!----Like by---->
-                                    <div class="row mt-2">
-                                        <div class="col-md-8 mt-1">
-                                            <small><strong class="">27,949 likes</strong></small>
-                                        </div>
-                                    </div>
-                                    <!--Description-->
-                                    <div class="row">
-                                        <div class="col-md-12 mt-2">
-                                            <p class="description-p">
-                                                <strong class="text-dark">janedoe_</strong> lorem ipsum dolor sit amet, consectetur 
-                                                lorem ipsum dolor sit
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>                
+                        </section>';
+                    }
+                }
+                ?>    
             </div>
             <div class="col-md-3"></div>
         </div>
         </div>
     </main>
+    <footer>
+        <div class="footer-container">
+            <a href="about_page.html">About Us</a>
+            <a href="privacy_page.html" class="footer-space">Privacy Policy</a>
+        </div>
+        <div class="footer-container">
+            <p>©2022 Team 925, Inc. All rights reserved</p>
+        </div>
+    </footer>
+    <!-- Post modal -->
+    <form action="php/upload_image.php" method="POST" enctype="multipart/form-data">
+        <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content model-height">
+                    <div class="modal-body text-center">
+                        <p class="comfirmation-text border-bottom">Create new post</p>
+                        <input class="form-control file_btn margin-top" type="file" name="file_upload" required>
+                        <textarea class="form-control file_btn" maxlength="1000" name="description" placeholder="Enter your caption"></textarea>
+                        <Select name="privacy" class='form-control file_btn'>
+                            <option value="public">Public</option>
+                            <option value="internal">Internal</option>
+                            <option value="private">Private</option>
+                        </Select>
+                        <input class="form-control submit_btn" type="submit" name="upload" value="Upload">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
 </html>

@@ -106,6 +106,12 @@ function register_profile_img_name($username) {
     return $name;
 }
 
+function upload_img_name($username) {
+    $name_frame = 'Upload_Img_';
+    $name = $name_frame . $username;
+    return $name;
+}
+
 function rename_img($img, $new_name, $database_path) {
     $old_path = $database_path . $img;
     $new_path = $database_path . $new_name;
@@ -219,7 +225,7 @@ function verify_update_img($img_file, $target_dir) {
                 return false;
             }
         } else {
-            $_SESSION['error_update'] = 'Your file is too large!';
+           $_SESSION['error_update'] = 'Your file is too large!';
             return false;
         }   
     } else {
@@ -236,10 +242,18 @@ function retrieve_data($database_path) {
 function get_profile_img($user){
     $file_location = '../UserData/ProfileImages/'.$user.'/';
     $files = scandir ($file_location);
-    $image = $file_location . $files[2];
-    return $image;
+    if (count($files) >= 3) {
+        $image = $file_location . $files[2];
+        return $image;
+    }
 }
 
+function get_upload_img($total, $i){
+    $folder = '../UserData/UserUpload/Images/';
+    $file = scandir ($folder);
+    $img = $folder . $file[$total - $i];
+    return $img;
+}
 function upload_img($img_file, $email_string, $fname, $lname, $unix_time, $dir) {
     $email_string = substr($email_string, 0, strpos($email_string, '@'));
     $target_dir = $dir . '/' .'Images';

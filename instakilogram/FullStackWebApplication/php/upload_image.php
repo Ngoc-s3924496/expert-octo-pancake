@@ -13,6 +13,9 @@ if (isset($_POST['upload'])) {
     $database_location = '../../UserData/UserUpload';
     $posts_database = $database_location . '/' . 'posts.db';
     $img_database_location = $database_location . '/' . 'Images' . '/';
+    $target_file = $img_database_location . "/" . basename($upload_image["name"]);
+    $file_extension = get_file_extension($target_file);
+    $new_file_name = upload_img_name((explode('.',$upload_image['name'])[0]) . '@' . $email_name . '@@' . time()).$file_extension;
     $uploadOK = 1;
     $post_data = [
         'email' => $email,
@@ -20,6 +23,7 @@ if (isset($_POST['upload'])) {
         'sharing_level' => $sharing_level,
         'created_time' => date('d/m/Y H:i:s e'),
         'created_seconds' => time(),
+        'image_location' => $new_file_name,
         'image' => $upload_image
     ];
     if (!verify_update_img($upload_image, $img_database_location)) {
@@ -36,6 +40,7 @@ if (isset($_POST['upload'])) {
         }
         if (file_put_contents($posts_database, json_encode($data_to_save, JSON_PRETTY_PRINT), LOCK_EX)) {
             upload_img($upload_image, $email, $fname, $lname, time(), $database_location);
+            header("Location: ../newsfeed.php");
         } else {
             echo 'failed';
         }

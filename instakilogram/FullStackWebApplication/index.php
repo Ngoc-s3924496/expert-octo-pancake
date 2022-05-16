@@ -1,3 +1,13 @@
+<?php session_start()?>
+<?php
+if (!isset($_SESSION['login'])){
+    $_SESSION['login'] = false;
+}
+if ($_SESSION['login'] === true){
+header("Location: newsfeed.php");
+exit;
+}?>
+<?php require_once('php/functions.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,66 +62,95 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-8">
-            <section class="newfeed my-5">
-                <div class="feed">
-                    <div class="card border">
-                        <div class="card-header">
-                            <!-------------Author-------------->
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="d-flex">
-                                        <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" class="rounded-circle" height="40" alt="Avatar">
-                                        <div class="mt-2">
-                                            <a href="" class="text-dark">
-                                                <strong class="mt-5 username">janedoe_</strong>
-                                            </a>
+            <?php 
+                $data = retrieve_data("../UserData/UserUpload/posts.db");
+                for ($i = (count($data) - 1); $i >= 0; $i--){
+                    $username = '';
+                    $caption = '';
+                    $sharing_level = '';
+                    $image = '';
+                    foreach ($data[$i] as $key => $value) {
+                        $username = get_name_via_email($data[$i]['email']);
+                        $caption = $data[$i]['caption'];
+                        $sharing_level = $data[$i]['sharing_level'];
+                        $image = $data[$i]['image_location'];
+                    }
+                    if ($sharing_level == "public"){
+                        echo 
+                        '<section class="newfeed my-5">
+                            <div class="feed">
+                                <div class="card border">
+                                    <div class="card-header">
+                                        <!-------------Author-------------->
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <div class="d-flex">
+                                                    <img src="'.get_profile_img($username).'" onerror="this.src=\'assets/default_image/default_image.jpeg\';'.'" class="rounded-circle" height="40" width="40" alt="Avatar">
+                                                    <div class="mt-2">
+                                                        <a href="" class="text-dark">
+                                                            <strong class="mt-5 username">'.$username.'</strong>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <i class="fas fa-ellipsis-h icon-size mt-2 float-right"></i>
+                                            </div>
+                                        </div>      
+                                    </div>
+                                    <!--------Photo---------->
+                                    <div>
+                                        <img src="../UserData/UserUpload/Images/'.$image.'" class="w-100" alt="newpicture"/>
+                                    </div>
+                                    <!------Interaction------>
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <i class="far fa-heart heart icon-size ml-0"></i>
+                                                    <i class="far fa-comment icon-size mx-3"></i>
+                                                    <i class="far fa-paper-plane icon-size"></i>
+                                                    <i class="far fa-bookmark bookmark icon-size float-right"></i>
+                                                </div>
+                                            </div>
+                                            <!----Like by---->
+                                            <div class="row mt-2">
+                                                <div class="col-md-8 mt-1">
+                                                    <small><strong class="">925,529 likes</strong></small>
+                                                </div>
+                                            </div>
+                                            <!--Description-->
+                                            <div class="row">
+                                                <div class="col-md-12 mt-2">
+                                                    <p class="description-p">
+                                                        <strong class="text-dark">'.$username.'</strong>'.' '.$caption.
+                                                    '</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <i class="fas fa-ellipsis-h icon-size mt-2 float-right"></i>
-                                </div>
-                            </div>      
-                        </div>
-                        <!---0----Photo---------->
-                        <div>
-                              <img src="https://images.unsplash.com/photo-1651972824059-96e321c58ec8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="w-100" heigth="1080" alt="newpicture"/>
-                        </div>
-                        <!------Interaction------>
-                        <div class="card-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <i class="far fa-heart heart icon-size ml-0"></i>
-                                        <i class="far fa-comment icon-size mx-3"></i>
-                                        <i class="far fa-paper-plane icon-size"></i>
-                                        <i class="far fa-bookmark bookmark icon-size float-right"></i>
-                                    </div>
-                                </div>
-                                <!----Like by---->
-                                <div class="row mt-2">
-                                    <div class="col-md-8 mt-1">
-                                        <small><strong class="">27,949 likes</strong></small>
-                                    </div>
-                                </div>
-                                <!--Description-->
-                                <div class="row">
-                                    <div class="col-md-12 mt-2">
-                                        <p class="description-p">
-                                            <strong class="text-dark">janedoe_</strong> lorem ipsum dolor sit amet, consectetur 
-                                            lorem ipsum dolor sit
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                        </section>';
+                    }
+                    else{
+                        continue;
+                    }
+                }
+                ?>    
             </div>
             <div class="col-md-3"></div>
         </div>
         </div>
     </main>
+    <footer>
+        <div class="footer-container">
+            <a href="about_page.html">About Us</a>
+            <a href="privacy_page.html" class="footer-space">Privacy Policy</a>
+        </div>
+        <div class="footer-container">
+            <p>©2022 Team 925, Inc. All rights reserved</p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -26,7 +26,7 @@
                     </form>
                     <p class="bottom_text">Don't have an account?</p>
                     <a href="register_page.php" class="register_btn">Register here</a>
-                    <p class="bottom_text3">Or <a href="php/logout.php">Go back</a></p>
+                    <p class="bottom_text3">Or <a href="index.php">Go back</a></p>
                 </div>
             </div>
         </div>

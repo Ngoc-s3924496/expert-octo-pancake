@@ -52,7 +52,7 @@ exit;
                     </i>
                 </a>
                 <a href="profile_page.php" class="navigation-link user-icon">
-					<img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='30' width='30' alt='avatar' class='rounded-circle'>
+                    <img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='30' width='30' alt='avatar' class='rounded-circle'>
                 </a>
             </div>
         </div>
@@ -62,19 +62,14 @@ exit;
 	<div class="container my-5 border-bottom">
 
 		<div class="profile">
-
 			<div class="profile-image">
-				<img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='150' width='150' alt=''>
+				<button class="profile-btn" data-bs-toggle="modal" data-bs-target="#changeimgModal"><img src="<?php echo get_profile_img($_SESSION['username']); ?>" onerror="this.src='assets/default_image/default_image.jpeg';" height='150' width='150' alt=''></button>
 			</div>
-
 			<div class="profile-user-settings">
-				<p></p>
 				<h1 class="profile-user-name"><?php echo $_SESSION['username']; ?></h1>
-
+				<button type="button" class="profile-btn profile-edit-btn" data-bs-toggle="modal" data-bs-target="#postModal">Add post</button>
 				<button type="button" class="profile-btn profile-edit-btn" data-bs-toggle="modal" data-bs-target="#logoutModal">Log out</button>
-
 				<button type="button" class="profile-btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
-
 			</div>
 
 			<div class="profile-stats">
@@ -88,8 +83,8 @@ exit;
 			</div>
 
 			<div class="profile-bio">
-
-				<p><span class="profile-real-name"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
+				<span class="profile-real-name"><?php echo $_SESSION['fname']." ".$_SESSION['lname']; ?></span>
+				<p> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
 
 			</div>
 
@@ -106,243 +101,98 @@ exit;
 	<div class="container">
 
 		<div class="gallery">
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1497445462247-4330a224fdb1?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 89</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 5</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-type">
-
-					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
-				</div>
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 42</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1502630859934-b3b41d18206c?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-type">
-
-					<span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
-
-				</div>
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 38</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1498471731312-b6d2b8280c61?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-type">
-
-					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
-				</div>
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 47</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1515023115689-589c33041d3c?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 94</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 3</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-type">
-
-					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
-				</div>
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 52</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 4</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1515814472071-4d632dbc5d4a?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 66</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1511407397940-d57f68e81203?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-type">
-
-					<span class="visually-hidden">Gallery</span><i class="fas fa-clone" aria-hidden="true"></i>
-
-				</div>
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 45</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 34</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 1</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1505058707965-09a4469a87e4?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 41</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="gallery-item" tabindex="0">
-
-				<img src="https://images.unsplash.com/photo-1423012373122-fff0a5d28cc9?w=500&h=500&fit=crop" class="gallery-image" alt="">
-
-				<div class="gallery-item-type">
-
-					<span class="visually-hidden">Video</span><i class="fas fa-video" aria-hidden="true"></i>
-
-				</div>
-
-				<div class="gallery-item-info">
-
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 30</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
-					</ul>
-
-				</div>
-
-			</div>
+			<?php 
+			$data = retrieve_data("../UserData/UserUpload/posts.db");
+			for ($i = (count($data) - 1); $i >= 0; $i--){
+				$username = '';
+				$caption = '';
+				$sharing_level = '';
+				$image = '';
+				foreach ($data[$i] as $key => $value) {
+					$username = get_name_via_email($data[$i]['email']);
+					$caption = $data[$i]['caption'];
+					$sharing_level = $data[$i]['sharing_level'];
+					$image = $data[$i]['image_location'];
+				}
+				if ($username == $_SESSION['username']){
+					echo 
+					'<div class="gallery-item" tabindex="0">
+						<img src="../UserData/UserUpload/Images/'.$image.'" class="gallery-image" alt="image">
+					<div class="gallery-item-info">
+						<ul>
+							<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>925,529</li>
+							<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 925</li>
+						</ul>
+						</div>
+					</div>';
+				}
+				else{
+					continue;
+				}
+			}
+			?>
 
 		</div>
-		<!-- End of gallery -->
-
-		<div class="loader"></div>
 
 	</div>
 	<!-- End of container -->
-
-<!-- Log out modal -->
-<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content model-height">
-      <div class="modal-body text-center">
-        <p class="comfirmation-text">Are you sure you want to log out?</p>
-		<button type="button" class="btn btn-secondary btn-text" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary btn-text"><a href="php/logout.php">Log Out</a></button>
-      </div>
-    </div>
-  </div>
-</div>
 </main>
+<footer>
+	<div class="footer-container">
+		<a href="about_page.html">About Us</a>
+		<a href="privacy_page.html" class="footer-space">Privacy Policy</a>
+	</div>
+	<div class="footer-container">
+		<p>©2022 Team 925, Inc. All rights reserved</p>
+	</div>
+</footer>
+	<!-- Log out modal -->
+	<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content model-height">
+				<div class="modal-body text-center">
+					<p class="comfirmation-text">Are you sure you want to log out?</p>
+					<button type="button" class="btn btn-secondary btn-text" data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary btn-text"><a href="php/logout.php">Log Out</a></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Change image modal -->
+	<form action="php/change_image.php" method="post" enctype="multipart/form-data">
+		<div class="modal fade" id="changeimgModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content model-height">
+					<div class="modal-body text-center">
+						<p class="comfirmation-text2">Change your profile image</p>
+						<input class="form-control file_btn" type="file" name="change_img" value="Change profile image" required>
+						<input class="form-control submit_btn" type="submit" name="save" value="Save">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<!-- Post modal -->
+    <form action="php/upload_image.php" method="POST" enctype="multipart/form-data">
+        <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content model-height2">
+                    <div class="modal-body text-center">
+                        <p class="comfirmation-text border-bottom">Create new post</p>
+                        <input class="form-control file_btn margin-top" type="file" name="file_upload" required>
+                        <textarea class="form-control file_btn" maxlength="1000" name="description" placeholder="Enter your caption"></textarea>
+                        <Select name="privacy" class='form-control file_btn'>
+                            <option value="public">Public</option>
+                            <option value="internal">Internal</option>
+                            <option value="private">Private</option>
+                        </Select>
+                        <input class="form-control submit_btn" type="submit" name="upload" value="Upload">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
 </html>
