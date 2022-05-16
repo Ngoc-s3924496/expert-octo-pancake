@@ -1,0 +1,44 @@
+[
+    {
+        "f_name": "asd",
+        "l_name": "asd",
+        "email": "a@gmail.com",
+        "password": "$2y$10$VZebEeWaP3v1aYKX943UV.P7qaO1TYkm0AAeFSBoNB78.lr9Ok4Ym",
+        "registered_time": "09\/05\/2022 07:10:58 UTC"
+    },
+    {
+        "f_name": "abb",
+        "l_name": "abbc",
+        "email": "b@gmail.com",
+        "password": "$2y$10$eCV3S.FRRipZPvN3TWI8q.BFCOWPiGrUruT9DlqiSzCptlazau4re",
+        "registered_time": "09\/05\/2022 15:35:20 UTC"
+    },
+    {
+        "f_name": "Thach",
+        "l_name": "Ngo",
+        "email": "baothach10@gmail.com",
+        "password": "$2y$10$\/a9wKLUVJ4G3G8fRbAn.iejaq2AW9TzfNS9C\/vEyvDMO6q0wGtiyS",
+        "registered_time": "10\/05\/2022 07:15:14 UTC"
+    },
+    {
+        "f_name": "&lt;thach&gt;",
+        "l_name": "&lt;ngo&gt;",
+        "email": "thachngo@gmail.com",
+        "password": "$2y$10$o7CqBczLJl2jJXBkM6xmmusdbkn.Q0\/N13rOa8K10HJ87IFbA0kQO",
+        "registered_time": "10\/05\/2022 07:19:07 UTC"
+    },
+    {
+        "f_name": "Tuan",
+        "l_name": "Tran",
+        "email": "tuantran@yahoo.com",
+        "password": "$2y$10$Otv.80grO.s1NenXpGYtJesaVi5KulFO7rcUETd\/fyI2zG\/Z7l7Ze",
+        "registered_time": "10\/05\/2022 07:20:55 UTC"
+    },
+    {
+        "f_name": "asd",
+        "l_name": "asd",
+        "email": "c@gmail.com",
+        "password": "$2y$10$0Idos1ICPDFdCEZz2JyuQOGvfjxl2dev.9lOScCXpx5X.vJWOh9gi",
+        "registered_time": "14\/05\/2022 18:06:37 UTC"
+    }
+]
