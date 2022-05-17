@@ -76,7 +76,7 @@
                     $post_database = '../UserData/UserUpload/posts.db';
                     $post_data = retrieve_data($post_database);
                     $data = retrieve_data($user_account);
-
+  
                     for ($j = (count($post_data) - 1); $j >= 0; $j--) {
                       foreach (scandir($folder_location) as $img) {
                           $image_location = $folder_location . '/' . $img;
